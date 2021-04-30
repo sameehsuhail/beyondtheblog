@@ -10,7 +10,1475 @@
 <link rel="shortcut icon" href="#">
 <link rel="stylesheet" type="text/css" href="assets/css/screen.css"/>
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:400,300italic,300,400italic,700,700italic|Playfair+Display:400,700,400italic,700italic"/>
+
+
+<style>
+
+
+	/* Create three equal columns that floats next to each other */
+	.column {
+	  float: left;
+	  width: 30%;
+	  padding: 10px;
+	  height: 100px; 
+	}
+	
+	/* Clear floats after the columns */
+	.row:after {
+	  content: "";
+	  display: table;
+	  clear: both;
+	}
+	
+	
+	
+	
+	p{
+		font-family: 'Poppins', sans-serif;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 1.7;
+		color: black;
+	}
+	
+	.section{
+	  position: relative;
+	  width: 100%;
+	  display: block;
+	  display: -ms-flexbox;
+	  display: flex;
+	  -ms-flex-wrap: wrap;
+	  flex-wrap: wrap;
+	  -ms-flex-pack: center;
+	  justify-content: center;
+	}
+	.full-height{
+	  min-height: 100vh;
+	}
+	
+	[type="checkbox"]:checked,
+	[type="checkbox"]:not(:checked){
+	  position: absolute;
+	  left: -9999px;
+	}
+	.modal-btn:checked + label,
+	.modal-btn:not(:checked) + label{
+	  position: relative;
+	  font-family: 'Poppins', sans-serif;
+	  font-weight: 500;
+	  font-size: 12px;
+	  line-height: 2;
+	  height: 50px;
+	  transition: all 200ms linear;
+	  border-radius: 4px;
+	  width: 240px;
+	  letter-spacing: 1px;
+	  display: -webkit-inline-flex;
+	  display: -ms-inline-flexbox;
+	  display: inline-flex;
+	  -webkit-align-items: center;
+	  -moz-align-items: center;
+	  -ms-align-items: center;
+	  align-items: center;
+	  -webkit-justify-content: center;
+	  -moz-justify-content: center;
+	  -ms-justify-content: center;
+	  justify-content: center;
+	  -ms-flex-pack: center;
+	  text-align: center;
+		-ms-flex-item-align: center;
+		align-self: center;
+	  border: none;
+	  cursor: pointer;
+	  background-color: black;
+	  color: white;
+	  box-shadow: 0 12px 35px 0 rgba(16,39,112,.25);
+	}
+	.modal-btn:not(:checked) + label:hover{
+	  background-color: #ffeba7;
+	  color: #102770;
+	}
+	.modal-btn:checked + label .uil,
+	.modal-btn:not(:checked) + label .uil{
+		margin-left: 10px;
+		font-size: 18px;
+	}
+	.modal-btn:checked + label:after,
+	.modal-btn:not(:checked) + label:after{
+	  position: fixed;
+	  top: 30px;
+	  right: 30px;
+	  z-index: 110;
+	  width: 40px;
+	  border-radius: 3px;
+	  height: 30px;
+	  text-align: center;
+	  line-height: 30px;
+	  font-size: 18px;
+	  background-color: #ffeba7;
+	  color: #102770;
+	  font-family: 'unicons';
+	  content: '\eac6'; 
+	  box-shadow: 0 12px 25px 0 rgba(16,39,112,.25);
+	  transition: all 200ms linear;
+	  opacity: 0;
+	  pointer-events: none;
+	  transform: translateY(20px);
+	}
+	.modal-btn:checked + label:hover:after,
+	.modal-btn:not(:checked) + label:hover:after{
+	  background-color: #102770;
+	  color: #ffeba7;
+	}
+	.modal-btn:checked + label:after{
+	  transition: opacity 300ms 300ms ease, transform 300ms 300ms ease, background-color 250ms linear, color 250ms linear;
+	  opacity: 1;
+	  pointer-events: auto;
+	  transform: translateY(0);
+	}
+	.modal{
+	  position: fixed;
+	  display: block;
+	  display: -ms-flexbox;
+	  display: flex;
+	  -ms-flex-wrap: wrap;
+	  flex-wrap: wrap;
+	  -ms-flex-pack: center;
+	  justify-content: center;
+	  margin: 0 auto;
+	  top: 0;
+	  left: 0;
+	  width: 100%;
+	  height: 100%;
+	  z-index: 100;
+	  overflow-x: hidden;
+	  background-color: rgba(31,32,41,.75);
+	  pointer-events: none;
+	  opacity: 0;
+	  transition: opacity 250ms 700ms ease;
+	}
+	.modal-btn:checked ~ .modal{
+	  pointer-events: auto;
+	  opacity: 1;
+	  transition: all 300ms ease-in-out;
+	}
+	.modal-wrap {
+	  position: relative;
+	  display: block;
+	  width: 100%;
+	  max-width: 400px;
+	  margin: 0 auto;
+	  margin-top: 20px;
+	  margin-bottom: 20px;
+	  border-radius: 4px;
+	  overflow: hidden;
+	  padding-bottom: 20px;
+	  background-color: #fff;
+		-ms-flex-item-align: center;
+		align-self: center;
+		box-shadow: 0 12px 25px 0 rgba(199,175,189,.25);
+	  opacity: 0;
+	  transform: scale(0.6);
+	  transition: opacity 250ms 250ms ease, transform 300ms 250ms ease;
+	}
+	
+	.modal-wrap p {
+	  padding: 20px 30px 0 30px;
+	}
+	.modal-btn:checked ~ .modal .modal-wrap{
+	  opacity: 1;
+	  transform: scale(1);
+	  transition: opacity 250ms 500ms ease, transform 350ms 500ms ease;
+	}
+	
+	
+	.logo {
+		position: absolute;
+		top: 25px;
+		left: 25px;
+		display: block;
+		z-index: 1000;
+		transition: all 250ms linear;
+	}
+	.logo img {
+		height: 26px;
+		width: auto;
+		display: block;
+		  filter: brightness(10%);
+		transition: filter 250ms 700ms linear;
+	}
+	.modal-btn:checked ~ .logo img {
+		  filter: brightness(100%);
+		transition: all 250ms linear;
+	}
+	
+	
+	@media screen and (max-width: 500px) {
+		.modal-wrap {
+			width: calc(100% - 40px);
+			padding-bottom: 15px;
+		}
+		.modal-wrap p {
+		  padding: 15px 20px 0 20px;
+		}
+	}
+	
+
+	
+
+
+
+
+
+
+	
+
+	.modal-btn3:checked + label,
+.modal-btn3:not(:checked) + label{
+  position: relative;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 2;
+  height: 50px;
+  transition: all 200ms linear;
+  border-radius: 4px;
+  width: 240px;
+  letter-spacing: 1px;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
+  text-align: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+  border: none;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  box-shadow: 0 12px 35px 0 rgba(16,39,112,.25);
+}
+.modal-btn3:not(:checked) + label:hover{
+  background-color: #ffeba7;
+  color: #102770;
+}
+.modal-btn3:checked + label .uil,
+.modal-btn3:not(:checked) + label .uil{
+	margin-left: 10px;
+	font-size: 18px;
+}
+.modal-btn3:checked + label:after,
+.modal-btn3:not(:checked) + label:after{
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  z-index: 110;
+  width: 40px;
+  border-radius: 3px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  font-size: 18px;
+  background-color: #ffeba7;
+  color: #102770;
+  font-family: 'unicons';
+  content: '\eac6'; 
+  box-shadow: 0 12px 25px 0 rgba(16,39,112,.25);
+  transition: all 200ms linear;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+}
+.modal-btn3:checked + label:hover:after,
+.modal-btn3:not(:checked) + label:hover:after{
+  background-color: black;
+  color: white;
+}
+.modal-btn3:checked + label:after{
+  transition: opacity 300ms 300ms ease, transform 300ms 300ms ease, background-color 250ms linear, color 250ms linear;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.modal3{
+  position: fixed;
+  display: block;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 0 auto;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  overflow-x: hidden;
+  background-color: rgba(31,32,41,.75);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 250ms 700ms ease;
+}
+.modal-btn3:checked ~ .modal3{
+  pointer-events: auto;
+  opacity: 1;
+  transition: all 300ms ease-in-out;
+}
+.modal-wrap3 {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  overflow: hidden;
+  padding-bottom: 20px;
+  background-color: #fff;
+    -ms-flex-item-align: center;
+    align-self: center;
+    box-shadow: 0 12px 25px 0 rgba(199,175,189,.25);
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 250ms 250ms ease, transform 300ms 250ms ease;
+}
+.modal-wrap3 img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.modal-wrap3 p {
+  padding: 20px 30px 0 30px;
+}
+.modal-btn3:checked ~ .modal3 .modal-wrap3{
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 250ms 500ms ease, transform 350ms 500ms ease;
+}
+
+
+.modal-btn3:checked ~ .logo img {
+  	filter: brightness(100%);
+	transition: all 250ms linear;
+}
+
+
+@media screen and (max-width: 500px) {
+	.modal-wrap3 {
+		width: calc(100% - 40px);
+		padding-bottom: 15px;
+	}
+	.modal-wrap3 p {
+	  padding: 15px 20px 0 20px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+.modal-btn2:checked + label,
+.modal-btn2:not(:checked) + label{
+  position: relative;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 2;
+  height: 50px;
+  transition: all 200ms linear;
+  border-radius: 4px;
+  width: 240px;
+  letter-spacing: 1px;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
+  text-align: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+  border: none;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  box-shadow: 0 12px 35px 0 rgba(16,39,112,.25);
+}
+.modal-btn2:not(:checked) + label:hover{
+  background-color: #ffeba7;
+  color: #102770;
+}
+.modal-btn2:checked + label .uil,
+.modal-btn2:not(:checked) + label .uil{
+	margin-left: 10px;
+	font-size: 18px;
+}
+.modal-btn2:checked + label:after,
+.modal-btn2:not(:checked) + label:after{
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  z-index: 110;
+  width: 40px;
+  border-radius: 3px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  font-size: 18px;
+  background-color: #ffeba7;
+  color: #102770;
+  font-family: 'unicons';
+  content: '\eac6'; 
+  box-shadow: 0 12px 25px 0 rgba(16,39,112,.25);
+  transition: all 200ms linear;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+}
+.modal-btn2:checked + label:hover:after,
+.modal-btn2:not(:checked) + label:hover:after{
+  background-color: #102770;
+  color: white;
+}
+.modal-btn2:checked + label:after{
+  transition: opacity 300ms 300ms ease, transform 300ms 300ms ease, background-color 250ms linear, color 250ms linear;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.modal2{
+  position: fixed;
+  display: block;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 0 auto;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  overflow-x: hidden;
+  background-color: rgba(31,32,41,.75);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 250ms 700ms ease;
+}
+.modal-btn2:checked ~ .modal2{
+  pointer-events: auto;
+  opacity: 1;
+  transition: all 300ms ease-in-out;
+}
+.modal-wrap2 {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  overflow: hidden;
+  padding-bottom: 20px;
+  background-color: #fff;
+    -ms-flex-item-align: center;
+    align-self: center;
+    box-shadow: 0 12px 25px 0 rgba(199,175,189,.25);
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 250ms 250ms ease, transform 300ms 250ms ease;
+}
+.modal-wrap2 img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.modal-wrap2 p {
+  padding: 20px 30px 0 30px;
+}
+.modal-btn2:checked ~ .modal2 .modal-wrap2{
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 250ms 500ms ease, transform 350ms 500ms ease;
+}
+
+
+.modal-btn2:checked ~ .logo img {
+  	filter: brightness(100%);
+	transition: all 250ms linear;
+}
+
+
+@media screen and (max-width: 500px) {
+	.modal-wrap2 {
+		width: calc(100% - 40px);
+		padding-bottom: 15px;
+	}
+	.modal-wrap2 p {
+	  padding: 15px 20px 0 20px;
+	}
+}
+
+
+.modal-btn4:checked + label,
+.modal-btn4:not(:checked) + label{
+  position: relative;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 2;
+  height: 50px;
+  transition: all 200ms linear;
+  border-radius: 4px;
+  width: 240px;
+  letter-spacing: 1px;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
+  text-align: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+  border: none;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  box-shadow: 0 12px 35px 0 rgba(16,39,112,.25);
+}
+.modal-btn4:not(:checked) + label:hover{
+  background-color: #ffeba7;
+  color: #102770;
+}
+.modal-btn4:checked + label .uil,
+.modal-btn4:not(:checked) + label .uil{
+	margin-left: 10px;
+	font-size: 18px;
+}
+.modal-btn4:checked + label:after,
+.modal-btn4:not(:checked) + label:after{
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  z-index: 110;
+  width: 40px;
+  border-radius: 3px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  font-size: 18px;
+  background-color: #ffeba7;
+  color: #102770;
+  font-family: 'unicons';
+  content: '\eac6'; 
+  box-shadow: 0 12px 25px 0 rgba(16,39,112,.25);
+  transition: all 200ms linear;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+}
+.modal-btn4:checked + label:hover:after,
+.modal-btn4:not(:checked) + label:hover:after{
+  background-color: #102770;
+  color: white;
+}
+.modal-btn4:checked + label:after{
+  transition: opacity 300ms 300ms ease, transform 300ms 300ms ease, background-color 250ms linear, color 250ms linear;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.modal4{
+  position: fixed;
+  display: block;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 0 auto;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  overflow-x: hidden;
+  background-color: rgba(31,32,41,.75);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 250ms 700ms ease;
+}
+.modal-btn4:checked ~ .modal4{
+  pointer-events: auto;
+  opacity: 1;
+  transition: all 300ms ease-in-out;
+}
+.modal-wrap4 {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  overflow: hidden;
+  padding-bottom: 20px;
+  background-color: #fff;
+    -ms-flex-item-align: center;
+    align-self: center;
+    box-shadow: 0 12px 25px 0 rgba(199,175,189,.25);
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 250ms 250ms ease, transform 300ms 250ms ease;
+}
+.modal-wrap4 img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.modal-wrap4 p {
+  padding: 20px 30px 0 30px;
+}
+.modal-btn4:checked ~ .modal4 .modal-wrap4{
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 250ms 500ms ease, transform 350ms 500ms ease;
+}
+
+
+.modal-btn4:checked ~ .logo img {
+  	filter: brightness(100%);
+	transition: all 250ms linear;
+}
+
+
+@media screen and (max-width: 500px) {
+	.modal-wrap4 {
+		width: calc(100% - 40px);
+		padding-bottom: 15px;
+	}
+	.modal-wrap4 p {
+	  padding: 15px 20px 0 20px;
+	}
+}
+
+
+
+
+
+.modal-btn5:checked + label,
+.modal-btn5:not(:checked) + label{
+  position: relative;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 2;
+  height: 50px;
+  transition: all 200ms linear;
+  border-radius: 4px;
+  width: 240px;
+  letter-spacing: 1px;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
+  text-align: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+  border: none;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  box-shadow: 0 12px 35px 0 rgba(16,39,112,.25);
+}
+.modal-btn5:not(:checked) + label:hover{
+  background-color: #ffeba7;
+  color: #102770;
+}
+.modal-btn5:checked + label .uil,
+.modal-btn5:not(:checked) + label .uil{
+	margin-left: 10px;
+	font-size: 18px;
+}
+.modal-btn5:checked + label:after,
+.modal-btn5:not(:checked) + label:after{
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  z-index: 110;
+  width: 40px;
+  border-radius: 3px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  font-size: 18px;
+  background-color: #ffeba7;
+  color: #102770;
+  font-family: 'unicons';
+  content: '\eac6'; 
+  box-shadow: 0 12px 25px 0 rgba(16,39,112,.25);
+  transition: all 200ms linear;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+}
+.modal-btn5:checked + label:hover:after,
+.modal-btn5:not(:checked) + label:hover:after{
+  background-color: #102770;
+  color: white;
+}
+.modal-btn5:checked + label:after{
+  transition: opacity 300ms 300ms ease, transform 300ms 300ms ease, background-color 250ms linear, color 250ms linear;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.modal5{
+  position: fixed;
+  display: block;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 0 auto;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  overflow-x: hidden;
+  background-color: rgba(31,32,41,.75);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 250ms 700ms ease;
+}
+.modal-btn5:checked ~ .modal5{
+  pointer-events: auto;
+  opacity: 1;
+  transition: all 300ms ease-in-out;
+}
+.modal-wrap5 {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  overflow: hidden;
+  padding-bottom: 20px;
+  background-color: #fff;
+    -ms-flex-item-align: center;
+    align-self: center;
+    box-shadow: 0 12px 25px 0 rgba(199,175,189,.25);
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 250ms 250ms ease, transform 300ms 250ms ease;
+}
+.modal-wrap5 img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.modal-wrap5 p {
+  padding: 20px 30px 0 30px;
+}
+.modal-btn5:checked ~ .modal5 .modal-wrap5{
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 250ms 500ms ease, transform 350ms 500ms ease;
+}
+
+
+.modal-btn5:checked ~ .logo img {
+  	filter: brightness(100%);
+	transition: all 250ms linear;
+}
+
+
+@media screen and (max-width: 500px) {
+	.modal-wrap5 {
+		width: calc(100% - 40px);
+		padding-bottom: 15px;
+	}
+	.modal-wrap5 p {
+	  padding: 15px 20px 0 20px;
+	}
+}
+
+
+
+
+
+
+.modal-btn6:checked + label,
+.modal-btn6:not(:checked) + label{
+  position: relative;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 2;
+  height: 50px;
+  transition: all 200ms linear;
+  border-radius: 4px;
+  width: 240px;
+  letter-spacing: 1px;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
+  text-align: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+  border: none;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  box-shadow: 0 12px 35px 0 rgba(16,39,112,.25);
+}
+.modal-btn6:not(:checked) + label:hover{
+  background-color: #ffeba7;
+  color: #102770;
+}
+.modal-btn6:checked + label .uil,
+.modal-btn6:not(:checked) + label .uil{
+	margin-left: 10px;
+	font-size: 18px;
+}
+.modal-btn6:checked + label:after,
+.modal-btn6:not(:checked) + label:after{
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  z-index: 110;
+  width: 40px;
+  border-radius: 3px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  font-size: 18px;
+  background-color: #ffeba7;
+  color: #102770;
+  font-family: 'unicons';
+  content: '\eac6'; 
+  box-shadow: 0 12px 25px 0 rgba(16,39,112,.25);
+  transition: all 200ms linear;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+}
+.modal-btn6:checked + label:hover:after,
+.modal-btn6:not(:checked) + label:hover:after{
+  background-color: #102770;
+  color: white;
+}
+.modal-btn6:checked + label:after{
+  transition: opacity 300ms 300ms ease, transform 300ms 300ms ease, background-color 250ms linear, color 250ms linear;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.modal6{
+  position: fixed;
+  display: block;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 0 auto;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  overflow-x: hidden;
+  background-color: rgba(31,32,41,.75);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 250ms 700ms ease;
+}
+.modal-btn6:checked ~ .modal6{
+  pointer-events: auto;
+  opacity: 1;
+  transition: all 300ms ease-in-out;
+}
+.modal-wrap6 {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  overflow: hidden;
+  padding-bottom: 20px;
+  background-color: #fff;
+    -ms-flex-item-align: center;
+    align-self: center;
+    box-shadow: 0 12px 25px 0 rgba(199,175,189,.25);
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 250ms 250ms ease, transform 300ms 250ms ease;
+}
+.modal-wrap6 img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.modal-wrap6 p {
+  padding: 20px 30px 0 30px;
+}
+.modal-btn6:checked ~ .modal6 .modal-wrap6{
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 250ms 500ms ease, transform 350ms 500ms ease;
+}
+
+
+.modal-btn6:checked ~ .logo img {
+  	filter: brightness(100%);
+	transition: all 250ms linear;
+}
+
+
+@media screen and (max-width: 500px) {
+	.modal-wrap6 {
+		width: calc(100% - 40px);
+		padding-bottom: 15px;
+	}
+	.modal-wrap6 p {
+	  padding: 15px 20px 0 20px;
+	}
+}
+
+
+
+
+
+.modal-btn7:checked + label,
+.modal-btn7:not(:checked) + label{
+  position: relative;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 2;
+  height: 50px;
+  transition: all 200ms linear;
+  border-radius: 4px;
+  width: 240px;
+  letter-spacing: 1px;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
+  text-align: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+  border: none;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  box-shadow: 0 12px 35px 0 rgba(16,39,112,.25);
+}
+.modal-btn7:not(:checked) + label:hover{
+  background-color: #ffeba7;
+  color: #102770;
+}
+.modal-btn7:checked + label .uil,
+.modal-btn7:not(:checked) + label .uil{
+	margin-left: 10px;
+	font-size: 18px;
+}
+.modal-btn7:checked + label:after,
+.modal-btn7:not(:checked) + label:after{
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  z-index: 110;
+  width: 40px;
+  border-radius: 3px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  font-size: 18px;
+  background-color: #ffeba7;
+  color: #102770;
+  font-family: 'unicons';
+  content: '\eac6'; 
+  box-shadow: 0 12px 25px 0 rgba(16,39,112,.25);
+  transition: all 200ms linear;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+}
+.modal-btn7:checked + label:hover:after,
+.modal-btn7:not(:checked) + label:hover:after{
+  background-color: #102770;
+  color: white;
+}
+.modal-btn7:checked + label:after{
+  transition: opacity 300ms 300ms ease, transform 300ms 300ms ease, background-color 250ms linear, color 250ms linear;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.modal7{
+  position: fixed;
+  display: block;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 0 auto;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  overflow-x: hidden;
+  background-color: rgba(31,32,41,.75);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 250ms 700ms ease;
+}
+.modal-btn7:checked ~ .modal7{
+  pointer-events: auto;
+  opacity: 1;
+  transition: all 300ms ease-in-out;
+}
+.modal-wrap7 {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  overflow: hidden;
+  padding-bottom: 20px;
+  background-color: #fff;
+    -ms-flex-item-align: center;
+    align-self: center;
+    box-shadow: 0 12px 25px 0 rgba(199,175,189,.25);
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 250ms 250ms ease, transform 300ms 250ms ease;
+}
+.modal-wrap7 img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.modal-wrap7 p {
+  padding: 20px 30px 0 30px;
+}
+.modal-btn7:checked ~ .modal7 .modal-wrap7{
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 250ms 500ms ease, transform 350ms 500ms ease;
+}
+
+
+.modal-btn7:checked ~ .logo img {
+  	filter: brightness(100%);
+	transition: all 250ms linear;
+}
+
+
+@media screen and (max-width: 500px) {
+	.modal-wrap7 {
+		width: calc(100% - 40px);
+		padding-bottom: 15px;
+	}
+	.modal-wrap7 p {
+	  padding: 15px 20px 0 20px;
+	}
+}
+
+
+
+
+
+
+.modal-btn8:checked + label,
+.modal-btn8:not(:checked) + label{
+  position: relative;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 2;
+  height: 50px;
+  transition: all 200ms linear;
+  border-radius: 4px;
+  width: 240px;
+  letter-spacing: 1px;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
+  text-align: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+  border: none;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  box-shadow: 0 12px 35px 0 rgba(16,39,112,.25);
+}
+.modal-btn8:not(:checked) + label:hover{
+  background-color: #ffeba7;
+  color: #102770;
+}
+.modal-btn8:checked + label .uil,
+.modal-btn8:not(:checked) + label .uil{
+	margin-left: 10px;
+	font-size: 18px;
+}
+.modal-btn8:checked + label:after,
+.modal-btn8:not(:checked) + label:after{
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  z-index: 110;
+  width: 40px;
+  border-radius: 3px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  font-size: 18px;
+  background-color: #ffeba7;
+  color: #102770;
+  font-family: 'unicons';
+  content: '\eac6'; 
+  box-shadow: 0 12px 25px 0 rgba(16,39,112,.25);
+  transition: all 200ms linear;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+}
+.modal-btn8:checked + label:hover:after,
+.modal-btn8:not(:checked) + label:hover:after{
+  background-color: #102770;
+  color: white;
+}
+.modal-btn8:checked + label:after{
+  transition: opacity 300ms 300ms ease, transform 300ms 300ms ease, background-color 250ms linear, color 250ms linear;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.modal8{
+  position: fixed;
+  display: block;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 0 auto;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  overflow-x: hidden;
+  background-color: rgba(31,32,41,.75);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 250ms 700ms ease;
+}
+.modal-btn8:checked ~ .modal8{
+  pointer-events: auto;
+  opacity: 1;
+  transition: all 300ms ease-in-out;
+}
+.modal-wrap8 {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  overflow: hidden;
+  padding-bottom: 20px;
+  background-color: #fff;
+    -ms-flex-item-align: center;
+    align-self: center;
+    box-shadow: 0 12px 25px 0 rgba(199,175,189,.25);
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 250ms 250ms ease, transform 300ms 250ms ease;
+}
+.modal-wrap8 img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.modal-wrap8 p {
+  padding: 20px 30px 0 30px;
+}
+.modal-btn8:checked ~ .modal8 .modal-wrap8{
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 250ms 500ms ease, transform 350ms 500ms ease;
+}
+
+
+.modal-btn8:checked ~ .logo img {
+  	filter: brightness(100%);
+	transition: all 250ms linear;
+}
+
+
+@media screen and (max-width: 500px) {
+	.modal-wrap8 {
+		width: calc(100% - 40px);
+		padding-bottom: 15px;
+	}
+	.modal-wrap8 p {
+	  padding: 15px 20px 0 20px;
+	}
+}
+
+
+
+
+
+.modal-btn9:checked + label,
+.modal-btn9:not(:checked) + label{
+  position: relative;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 2;
+  height: 50px;
+  transition: all 200ms linear;
+  border-radius: 4px;
+  width: 240px;
+  letter-spacing: 1px;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
+  text-align: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+  border: none;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  box-shadow: 0 12px 35px 0 rgba(16,39,112,.25);
+}
+.modal-btn9:not(:checked) + label:hover{
+  background-color: #ffeba7;
+  color: #102770;
+}
+.modal-btn9:checked + label .uil,
+.modal-btn9:not(:checked) + label .uil{
+	margin-left: 10px;
+	font-size: 18px;
+}
+.modal-btn9:checked + label:after,
+.modal-btn9:not(:checked) + label:after{
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  z-index: 110;
+  width: 40px;
+  border-radius: 3px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  font-size: 18px;
+  background-color: #ffeba7;
+  color: #102770;
+  font-family: 'unicons';
+  content: '\eac6'; 
+  box-shadow: 0 12px 25px 0 rgba(16,39,112,.25);
+  transition: all 200ms linear;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+}
+.modal-btn9:checked + label:hover:after,
+.modal-btn9:not(:checked) + label:hover:after{
+  background-color: #102770;
+  color: white;
+}
+.modal-btn9:checked + label:after{
+  transition: opacity 300ms 300ms ease, transform 300ms 300ms ease, background-color 250ms linear, color 250ms linear;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.modal9{
+  position: fixed;
+  display: block;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 0 auto;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  overflow-x: hidden;
+  background-color: rgba(31,32,41,.75);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 250ms 700ms ease;
+}
+.modal-btn9:checked ~ .modal9{
+  pointer-events: auto;
+  opacity: 1;
+  transition: all 300ms ease-in-out;
+}
+.modal-wrap9 {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  overflow: hidden;
+  padding-bottom: 20px;
+  background-color: #fff;
+    -ms-flex-item-align: center;
+    align-self: center;
+    box-shadow: 0 12px 25px 0 rgba(199,175,189,.25);
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 250ms 250ms ease, transform 300ms 250ms ease;
+}
+.modal-wrap9 img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.modal-wrap9 p {
+  padding: 20px 30px 0 30px;
+}
+.modal-btn9:checked ~ .modal9 .modal-wrap9{
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 250ms 500ms ease, transform 350ms 500ms ease;
+}
+
+
+.modal-btn9:checked ~ .logo img {
+  	filter: brightness(100%);
+	transition: all 250ms linear;
+}
+
+
+@media screen and (max-width: 500px) {
+	.modal-wrap9 {
+		width: calc(100% - 40px);
+		padding-bottom: 15px;
+	}
+	.modal-wrap9 p {
+	  padding: 15px 20px 0 20px;
+	}
+}
+
+		</style>
+
+
+
 </head>
+
 <body class="post-template">
 <div class="site-wrapper">
 
@@ -53,116 +1521,207 @@
 		<article class="post featured">
 		<section class="post-content">
 
-			<p>
-<h4>When you feel depressed</h4><br>
-				1. talk to someone<br>
-2. get moving<br>
-3. make a new hobby<br>
-4. add mindfulness to your day<br>
-5. express gratitude<br>
-6. get your daily dose of sunlight<br>
-7. don't ignore suicidal thoughts<br>
-8. find a simple source of joy<br>
-9. reframe your negative thoughts
+
+
+
+
+		<div class="row">
+
+				<div class="column">
+				
+					<input class="modal-btn" type="checkbox" id="modal-btn" name="modal-btn"/>
+    
+					<label for="modal-btn">Talk to someone <i class="uil uil-expand-arrows"></i></label> 	
+			  
+					<div class="modal">		
+						<div class="modal-wrap">	
+					  
+							<p>The simple act of talking to someone who cares about you is crucial to dealing with feelings of depression.
+								Talk to a close friend or family member about what you’re going through. Reaching out is not a sign of weakness and won’t make you a burden.
+								The person you talk to doesn’t have to be able to fix you; they just need to listen without being distracted or judging you.
+								It can be tempting to retreat into your shell when you feel depressed, but try to stay as social as you can—even when you don’t feel like it.</p>	          		
+						</div>			          		
+					</div>
+				</div>
 			
-		</p>
+			
+				<div class="column">
+				
+					<input class="modal-btn2" type="checkbox" id="modal-btn2" name="modal-btn2"/>
+    
+					<label for="modal-btn2">Get moving<i class="uil uil-expand-arrows"></i></label> 	
+			  
+					<div class="modal2">		
+						<div class="modal-wrap2">	
+					  
+							<p> It’s probably the last thing you feel like doing right now—but getting active, even for a short period.
+								Take a short, 15-minute walk to boost your mood for several hours.
+								Dance to your favorite music.
+								Play with your dog or kids.
+								Try online exercise classes for aerobics, interval training, or Pilates.
+								Create a simple home gym using resistance bands, water bottles, or your own body weight.
+								Stretch or practice simple yoga poses.</p>	          		
+						</div>			          		
+					</div>
+				</div>
+			
+			
+				<div class="column">
+				
+					<input class="modal-btn3" type="checkbox" id="modal-btn3" name="modal-btn3"/>
+    
+					<label for="modal-btn3"> Make a new hobby<i class="uil uil-expand-arrows"></i></label> 	
+			  
+					<div class="modal3">		
+						<div class="modal-wrap3">	
+					  
+							<p>find your ideas <a href="https://www.mydomaine.com/hobby-ideas"> here</a></p>	          		
+						</div>			          		
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+
+				<div class="column">
+				
+					<input class="modal-btn9" type="checkbox" id="modal-btn9" name="modal-btn9"/>
+    
+					<label for="modal-btn9">Add mindfulness <br>to your day <i class="uil uil-expand-arrows"></i></label> 	
+			  
+					<div class="modal9">		
+						<div class="modal-wrap9">	
+					  
+							<p>Mindfulness is the practice of focusing your attention on the present moment and accepting it without judgment. It can prevent you from getting caught up in worries about the future or regrets about the past.
+								Listen to a favorite song.
+								
+								Try a mindful chore.
+								
+								Meditate. <a href= "https://www.helpguide.org/meditations/mindful-breathing-meditation.htm">HelpGuide</a> can help you harness the power of your breath.</p>	          		
+						</div>			          		
+					</div>
+				</div>
+			
+			
+				<div class="column">
+			
+					<input class="modal-btn8" type="checkbox" id="modal-btn8" name="modal-btn8"/>
+    
+					<label for="modal-btn8">Express gratitude<i class="uil uil-expand-arrows"></i></label> 	
+			  
+					<div class="modal8">		
+						<div class="modal-wrap8">	
+					  
+							<p>When you’re depressed, everything in life can seem bleak and hopeless
+								Take a deep breath and think of one thing you’re grateful for: your children, your home, or a pet, for example.
+								Before you switch off the light at night, take a moment to write down something that made you grateful today. Focus your mind on it as you fall asleep.
+								Try HelpGuide’s <a href="https://www.helpguide.org/meditations/gratitude-in-difficult-times-meditation.htm">Gratitude in Difficult Times</a>	 meditation to find gratitude even during the struggles of this pandemic.</p>	          		
+						</div>			          		
+					</div>
+				</div>
+			
+			
+				<div class="column">
+			
+					<input class="modal-btn4" type="checkbox" id="modal-btn4" name="modal-btn4"/>
+    
+					<label for="modal-btn4">Get your daily dose<br> of sunlight <i class="uil uil-expand-arrows"></i></label> 	
+			  
+					<div class="modal4">		
+						<div class="modal-wrap4">	
+					  
+							<p>Take a walk at lunchtime, drink your morning coffee outside, or spend time outdoors exercising or doing yard work.
+								Increase the amount of natural light in your home by opening blinds and drapes and sitting near windows.
+								Paint your walls in lighter colors or use daylight simulation bulbs.
+								If you live somewhere with little winter sunshine, try using a light therapy box.</p>	          		
+						</div>			          		
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+
+				<div class="column">
+			
+					<input class="modal-btn5" type="checkbox" id="modal-btn5" name="modal-btn5"/>
+    
+					<label for="modal-btn5">Don't ignore suicidal<br> thoughts <i class="uil uil-expand-arrows"></i></label> 	
+			  
+					<div class="modal5">		
+						<div class="modal-wrap5">	
+					  
+							<p>Depression is a major risk factor for suicide. If the deep despair and hopelessness that accompanies depression makes suicide feel like the only way to escape the pain, please reach out for help.
+								find a helpline in your country <a href=" https://www.befrienders.org/suicidal-feelings">here</a></p>	          		
+						</div>			          		
+					</div>
+				</div>
+			
+			
+				<div class="column">
+				
+					<input class="modal-btn6" type="checkbox" id="modal-btn6" name="modal-btn6"/>
+    
+					<label for="modal-btn6">Find a simple <br>source of joy<i class="uil uil-expand-arrows6"></i></label> 	
+			  
+					<div class="modal6">		
+						<div class="modal-wrap6">	
+					  
+							<p>Listen to uplifting music, watch funny videos online, or download episodes of your favorite sitcom.
+								Try to spend some time in nature—go for a walk in the park or find a new hiking trail.
+								Help a friend or neighbor with an errand. Helping others can be just as beneficial to you as it is for them.
+								Take a class online, listen to a lecture, or take a virtual tour of a museum.
+								Take up a new hobby, learn to play an instrument, or write your memoirs—anything that brings you a sense of joy.</p>	          		
+						</div>			          		
+					</div>
+				</div>
+			
+			
+				<div class="column">
+				
+					<input class="modal-btn7" type="checkbox" id="modal-btn7" name="modal-btn7"/>
+    
+					<label for="modal-btn7">Reframe your negative <br>thoughts <i class="uil uil-expand-arrows"></i></label> 	
+			  
+					<div class="modal7">		
+						<div class="modal-wrap7">	
+					  
+							<p>1. Note when you have a negative thought such as “I’ll never be able to pay the mortgage and I’ll lose my home,” or “Everyone thinks I’m a loser.”<br><br>
+								2. Challenge the thought by asking yourself “Do I know that for sure?” or “What would I say to a close friend who had the same thought?”<br><br>
+								3. Change the thought to a more helpful way of thinking. “I can renegotiate mortgage payments with the bank” or “I’ve made it through bad times before. I can do it again.”
+								</p>	          		
+						</div>			          		
+					</div>
+				</div>
+			</div>
 
 
-	<h5>1. Talk to someone</h5>
-	<p>
-		The simple act of talking to someone who cares about you is crucial to dealing with feelings of depression.
-		Talk to a close friend or family member about what you’re going through. Reaching out is not a sign of weakness and won’t make you a burden.
-		The person you talk to doesn’t have to be able to fix you; they just need to listen without being distracted or judging you.
-		It can be tempting to retreat into your shell when you feel depressed, but try to stay as social as you can—even when you don’t feel like it.
-		
-		</p>
 
 
-		<h5>2. Get moving</h5>
-<p>
 
-	It’s probably the last thing you feel like doing right now—but getting active, even for a short period.
-	Take a short, 15-minute walk to boost your mood for several hours.
-	Dance to your favorite music.
-	Play with your dog or kids.
-	Try online exercise classes for aerobics, interval training, or Pilates.
-	Create a simple home gym using resistance bands, water bottles, or your own body weight.
-	Stretch or practice simple yoga poses.
-</p>
 
-<h5>3. Make a new hobby</h5>
+			<br>
 
-<p>
-	Find your ideas <a href= "https://www.mydomaine.com/hobby-ideas">here</a>
-</p>
-
-<h5>4. Add mindfulness to your day</h5>
-<p>
-	Mindfulness is the practice of focusing your attention on the present moment and accepting it without judgment. It can prevent you from getting caught up in worries about the future or regrets about the past.
-	Listen to a favorite song.
-	
-	Try a mindful chore.
-	
-	Meditate. <a href="https://www.helpguide.org/meditations/mindful-breathing-meditation.htm">HelpGuide</a> can help you harness the power of your breath.
-</p>
-
-<h5>5. Express gratitude </h5>
-<p>
-	When you’re depressed, everything in life can seem bleak and hopeless
-	Take a deep breath and think of one thing you’re grateful for: your children, your home, or a pet, for example.
-	Before you switch off the light at night, take a moment to write down something that made you grateful today. Focus your mind on it as you fall asleep.
-	Try HelpGuide’s <a href="https://www.helpguide.org/meditations/gratitude-in-difficult-times-meditation.htm"> Gratitude in Difficult Times</a> meditation to find gratitude even during the struggles of this pandemic.
-</p>
-
-<h5>6. Get your daily dose of sunlight </h5>
-<p>
-	Take a walk at lunchtime, drink your morning coffee outside, or spend time outdoors exercising or doing yard work.
-Increase the amount of natural light in your home by opening blinds and drapes and sitting near windows.
-Paint your walls in lighter colors or use daylight simulation bulbs.
-If you live somewhere with little winter sunshine, try using a light therapy box.
-</p>
-
-<h5>7. Don't ignore suicidal thoughts</h5>
-<p>
-	Depression is a major risk factor for suicide. If the deep despair and hopelessness that accompanies depression makes suicide feel like the only way to escape the pain, please reach out for help.
-find a helpline in your country at <a href="https://www.befrienders.org/suicidal-feelings">helpline</a>
-</p>
-
-<h5>8. Find a simple source of joy </h5>
-<p>
-	Listen to uplifting music, watch funny videos online, or download episodes of your favorite sitcom.
-Try to spend some time in nature—go for a walk in the park or find a new hiking trail.
-Help a friend or neighbor with an errand. Helping others can be just as beneficial to you as it is for them.
-Take a class online, listen to a lecture, or take a virtual tour of a museum.
-Take up a new hobby, learn to play an instrument, or write your memoirs—anything that brings you a sense of joy.
-
-</p>
-
-<h5>9. Reframe your negative thoughts </h5>
-<p>
-	Note when you have a negative thought such as “I’ll never be able to pay the mortgage and I’ll lose my home,” or “Everyone thinks I’m a loser.”
-Challenge the thought by asking yourself “Do I know that for sure?” or “What would I say to a close friend who had the same thought?”
-Change the thought to a more helpful way of thinking. “I can renegotiate mortgage payments with the bank” or “I’ve made it through bad times before. I can do it again.”
-
-</p>
-<br>
-<br>
 
 
 		</section>
-		<footer class="post-footer">
+
+
+
+
+
+		<!-- <footer class="post-footer">
 		<figure class="author-image">
 		<a class="img" href="about.html" style="background-image: url(assets/img/gravatar.jpg);"><span class="hidden">Ghufran</span></a>
 		</figure>
 		<section class="author">
 		<h4><a href="author.html">Ghufran</a></h4>
-		<p>
+		<p> --> 
 			<!-- Go to my wattpad to see my short stories! -->
-		</p>
+		<!-- </p>
 		<div class="author-meta">
 			<span class="author-link icon-link"><a href="https://www.wattpad.com/user/ghufranistic">Wattpad</a></span>
 		</div>
-		</section>
+		</section> -->
 		<!-- <section class="share">
 		<h4>Share this post</h4>
 		<a class="icon-twitter" href="https://twitter.com/intent/tweet?text=Once%20Upon%20a%20Time&amp;url=#" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
@@ -175,14 +1734,17 @@ Change the thought to a more helpful way of thinking. “I can renegotiate mortg
 		<span class="hidden">Facebook</span>
 		</a>
 		</section> -->
-		</footer>
+		<!-- </footer> -->
 
 
 		</article>
 	</div>
 	</main>
+
+<!-- 	
 	<div class="clearfix">
-	</div>
+	</div> -->
+	
 	<aside class="read-next">
 	<a class="read-next-story " style="background-image: url(http://s3.amazonaws.com/caymandemo/wp-content/uploads/sites/10/2015/09/10175658/j6-520x779-520x600.jpg)" href="article-balance.html">
 	<section class="post">
