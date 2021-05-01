@@ -70,7 +70,7 @@ p {
   align-self: center;
   border: none;
   cursor: pointer;
-  background-color: black;
+  background-color: green;
   color: white;
   box-shadow: 0 12px 35px 0 rgba(16, 39, 112, 0.25);
 }
