@@ -51,7 +51,7 @@ p {
   height: 50px;
   transition: all 200ms linear;
   border-radius: 4px;
-  width: 240px;
+  width: 330%;
   letter-spacing: 1px;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
