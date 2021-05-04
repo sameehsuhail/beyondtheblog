@@ -10,20 +10,16 @@
 <link rel="shortcut icon" href="#">
 <link rel="stylesheet" type="text/css" href="assets/css/screen.css"/>
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:400,300italic,300,400italic,700,700italic|Playfair+Display:400,700,400italic,700italic"/>
-<link rel="stylesheet" type="text/css" href="minds-stircrazy.css" media="screen" />
-<link rel="stylesheet" media='screen and (min-width: 200px) and (max-width: 400px)' href='minds-stircrazy-mobile.css' />
 
 
-
-<!-- 
 <style>
 
 
 	/* Create three equal columns that floats next to each other */
 	.column {
 	  float: left;
-	  width: 30%;
-	  padding: 10px;
+	  width: 18.5%;
+	  padding: -1px;
 	  height: 100px; 
 	}
 	
@@ -72,10 +68,10 @@
 	  font-weight: 500;
 	  font-size: 12px;
 	  line-height: 2;
-	  height: 60px;
+	  height: 50px;
 	  transition: all 200ms linear;
 	  border-radius: 4px;
-	  width: 325%;
+	  width: 540%;
 	  letter-spacing: 1px;
 	  display: -webkit-inline-flex;
 	  display: -ms-inline-flexbox;
@@ -228,11 +224,14 @@
 	}
 	
 
+	
 
 
 
 
 
+
+	
 
 	.modal-btn3:checked + label,
 .modal-btn3:not(:checked) + label{
@@ -244,7 +243,7 @@
   height: 50px;
   transition: all 200ms linear;
   border-radius: 4px;
-  width: 325%;;
+  width: 540%;
   letter-spacing: 1px;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -404,7 +403,7 @@
   height: 50px;
   transition: all 200ms linear;
   border-radius: 4px;
-  width: 325%;;
+  width: 540%;
   letter-spacing: 1px;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -546,10 +545,161 @@
 }
 
 
+.modal-btn4:checked + label,
+.modal-btn4:not(:checked) + label{
+  position: relative;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 2;
+  height: 50px;
+  transition: all 200ms linear;
+  border-radius: 4px;
+  width: 540%;
+  letter-spacing: 1px;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
+  text-align: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+  border: none;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  box-shadow: 0 12px 35px 0 rgba(16,39,112,.25);
+}
+.modal-btn4:not(:checked) + label:hover{
+  background-color: #ffeba7;
+  color: #102770;
+}
+.modal-btn4:checked + label .uil,
+.modal-btn4:not(:checked) + label .uil{
+	margin-left: 10px;
+	font-size: 18px;
+}
+.modal-btn4:checked + label:after,
+.modal-btn4:not(:checked) + label:after{
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  z-index: 110;
+  width: 40px;
+  border-radius: 3px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  font-size: 18px;
+  background-color: #ffeba7;
+  color: #102770;
+  font-family: 'unicons';
+  content: '\eac6'; 
+  box-shadow: 0 12px 25px 0 rgba(16,39,112,.25);
+  transition: all 200ms linear;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+}
+.modal-btn4:checked + label:hover:after,
+.modal-btn4:not(:checked) + label:hover:after{
+  background-color: #102770;
+  color: white;
+}
+.modal-btn4:checked + label:after{
+  transition: opacity 300ms 300ms ease, transform 300ms 300ms ease, background-color 250ms linear, color 250ms linear;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.modal4{
+  position: fixed;
+  display: block;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 0 auto;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  overflow-x: hidden;
+  background-color: rgba(31,32,41,.75);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 250ms 700ms ease;
+}
+.modal-btn4:checked ~ .modal4{
+  pointer-events: auto;
+  opacity: 1;
+  transition: all 300ms ease-in-out;
+}
+.modal-wrap4 {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  overflow: hidden;
+  padding-bottom: 20px;
+  background-color: #fff;
+    -ms-flex-item-align: center;
+    align-self: center;
+    box-shadow: 0 12px 25px 0 rgba(199,175,189,.25);
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 250ms 250ms ease, transform 300ms 250ms ease;
+}
+.modal-wrap4 img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.modal-wrap4 p {
+  padding: 20px 30px 0 30px;
+}
+.modal-btn4:checked ~ .modal4 .modal-wrap4{
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 250ms 500ms ease, transform 350ms 500ms ease;
+}
 
 
-		</style> -->
+.modal-btn4:checked ~ .logo img {
+  	filter: brightness(100%);
+	transition: all 250ms linear;
+}
 
+
+@media screen and (max-width: 500px) {
+	.modal-wrap4 {
+		width: calc(100% - 40px);
+		padding-bottom: 15px;
+	}
+	.modal-wrap4 p {
+	  padding: 15px 20px 0 20px;
+	}
+}
+
+
+
+
+		</style>
 
 </head>
 <body class="post-template">
@@ -574,10 +724,10 @@
 		</nav>
 
 
-	<header class="main-header post-head " style="background-image: url(assets/img/blog-4.jpg)">
+	<header class="main-header post-head " style="background-image: url(assets/img/blog-3.jpg)">
 	<div class="vertical">
 		<div class="main-header-content inner">
-			<h1 class="post-title">I feel stir crazy</h1>
+			<h1 class="post-title">I feel lonely</h1>
 			<div class="entry-title-divider">
 				<span></span><span></span><span></span>
 			</div>
@@ -594,61 +744,95 @@
 		<article class="post featured">
 		<section class="post-content">
 
-			<div class="row">
 
+			<div class="row">
+			
+			
 				<div class="column">
 				
 					<input class="modal-btn" type="checkbox" id="modal-btn" name="modal-btn"/>
     
-					<label for="modal-btn">Remember why staying <br> at home is important <i class="uil uil-expand-arrows"></i></label> 	
+					<label for="modal-btn">Find creative ways<i class="uil uil-expand-arrows"></i></label> 	
 			  
 					<div class="modal">		
 						<div class="modal-wrap">	
 					  
-							<p>When cabin fever bites hardest and you feel like you’re going to crawl out of your skin with boredom or frustration, it can help to remind yourself of the bigger picture and why you’re staying at home.
-								Enduring these hardships today will help to save the lives of the most vulnerable people in your community and prevent overburdening the health care system. Your sacrifice may even help save the lives of specific friends or loved ones.<br>
-								<br>
-								It’s also important to remember that this won’t last forever. It will pass and when it does, we all will once again be able to enjoy the things that are most important to us.</p>	          		
+							<p> Keep up with friends and family.
+								Arrange group hangouts with friends to play party games, enjoy happy hour drinks, or watch sports events together.
+								Schedule meetings or lunch breaks with your co-workers.
+								Call on the phone. If you feel uncomfortable about calling people out of the blue—even on days when you feel especially lonely—text to set up a good time to call. Or better still, schedule regular times each week to talk on the phone with a friend or loved one.</p>	          		
 						</div>			          		
 					</div>
 				</div>
-			</div>
-			
+		</div>
+
 			<div class="row">
+
 				<div class="column">
 				
-					<input class="modal-btn2" type="checkbox" id="modal-btn2" name="modal-btn2"/>
-    
-					<label for="modal-btn2">Structure your day<i class="uil uil-expand-arrows"></i></label> 	
-			  
-					<div class="modal2">		
-						<div class="modal-wrap2">	
-					  
-							<p> Much of the cabin fever many of us are experiencing at this time comes from the loss of our normal daily structure. It’s easy to slip into the habit of sleeping too much or too little, skipping meals and exercise, or neglecting your personal care, especially if you’re alone or out of work.</p>	          		
-							<p>To maintain a sense of normalcy if you’re stuck at home, establish a regular sleep, school, meal, and work schedule. It doesn’t have to be the same as your routine before the pandemic, but the more structure you can add to your day, the less oppressive time at home will feel. Try to include set times for exercising, getting outside, and communicating with friends each day.</p>
-						</div>			          		
-					</div>
+				<input class="modal-btn2" type="checkbox" id="modal-btn2" name="modal-btn2"/>
+
+				<label for="modal-btn2">Help others<i class="uil uil-expand-arrows"></i></label> 	
+		  
+				<div class="modal2">		
+					<div class="modal-wrap2">	
+				  
+						<p>Helping others can foster a sense of connection and provide meaning and purpose during these turbulent times. In fact, <a href="https://www.helpguide.org/articles/healthy-living/volunteering-and-its-surprising-benefits.htm"> helpguide </a>>can be just as beneficial for you as it is for those you help.</p>	          		
+					</div>			          		
 				</div>
 			</div>
-			
+
+		</div>
+
 			<div class="row">
+
+
 				<div class="column">
 				
 					<input class="modal-btn3" type="checkbox" id="modal-btn3" name="modal-btn3"/>
     
-					<label for="modal-btn3"> Try meditation<i class="uil uil-expand-arrows"></i></label> 	
+					<label for="modal-btn3">Distract yourself <i class="uil uil-expand-arrows"></i></label> 	
 			  
 					<div class="modal3">		
 						<div class="modal-wrap3">	
 					  
-							<p> Exercise is a great way to relieve stress, take your mind off your troubles, and boost your mood. Even if you’re under lockdown or a stay-at-home order, there are still <a href="https://www.helpguide.org/articles/healthy-living/exercise-during-coronavirus.htm"> creative ways to exercise</a> safely at home.</p>	          		
+							<p> Focusing on a hobby or interest can help you to feel less alone and add a sense of purpose to your days. If you’ve always wanted to learn a new language or a musical instrument, this could be the perfect time. Once the pandemic is over, you can look back proudly at having achieved a goal.
+
+								Create a family tree using a genealogy website.
+								Do something creative, like writing your memoirs, painting, practicing a craft, or learning to cook.
+								Improve your home—make repairs or decorate a room.
+								Take a class online, listen to a lecture or <a href="https://www.youtube.com/watch?v=xgJRxU9hA9A&feature=emb_rel_end&ab_channel=LAPhil">concert</a>, or take a virtual tour of a museum.
+								Adopt a pet.
+								If you’re<a href="https://www.helpguide.org/articles/stress/job-loss-and-unemployment-stress.htm"> out of work</a>, update your resume and LinkedIn profile, and explore ways to network online.</p>	          		
+						</div>			          		
+					</div>
+				</div>
+			
+			</div>
+				
+			<div class="row">
+
+				<div class="column">
+				
+					<input class="modal-btn4" type="checkbox" id="modal-btn4" name="modal-btn4"/>
+    
+					<label for="modal-btn4">Remember this isn't <br>forever, it'll pass<i class="uil uil-expand-arrows"></i></label> 	
+			  
+					<div class="modal4">		
+						<div class="modal-wrap4">	
+					  
+							<p>As bleak and lonely as today may seem, there are plenty of reasons to feel hopeful about tomorrow. The rollout of coronavirus vaccines mean that the end of the pandemic is at least in sight now. While social distancing may still be necessary for some time to come, keep in mind a quote that has been circulating in Italy: “We’re standing far apart now so we can embrace each other later.”
+								In the meantime, if loneliness becomes too much to bear and you feel overwhelmed or in despair, please reach out. Read <a href="https://www.helpguide.org/articles/suicide-prevention/are-you-feeling-suicidal.htm"> Are You Feeling Suicidal?</a>, call the<a href="https://suicidepreventionlifeline.org/"> National Suicide Prevention Lifeline</a> in the U.S. at 1-800-273-8255, or find a helpline in your country at <a href="https://www.befrienders.org/suicidal-feelings">Befrienders Worldwide</a>.</p>	          		
 						</div>			          		
 					</div>
 				</div>
 			</div>
+			
+		</div>
 
-	
 		</section>
+
+
 		<!-- <footer class="post-footer">
 		<figure class="author-image">
 		<a class="img" href="about.html" style="background-image: url(assets/img/gravatar.jpg);"><span class="hidden">Ghufran</span></a>
@@ -680,7 +864,6 @@
 		</article>
 	</div>
 	</main>
-
 	<div class="clearfix">
 	</div>
 	<aside class="read-next">
