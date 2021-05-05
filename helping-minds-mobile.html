@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+<title>Ghufranistic</title>
+<link rel="shortcut icon" href="assets/img/frog.ico" />
+<meta name="description" content="Blog by Ghufran Hussain"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="shortcut icon" href="#">
+<link rel="stylesheet" type="text/css" href="assets/css/screen.css"/>
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:400,300italic,300,400italic,700,700italic|Playfair+Display:400,700,400italic,700italic"/>
+<link rel="stylesheet" type="text/css" href="helping-minds.css" media="screen" />
+<link rel="stylesheet" media='screen and (min-width: 200px) and (max-width: 400px)' href='helping-minds-mobile.css' />
+<!-- 
+<style>
+
+
+  /* Create three equal columns that floats next to each other */
+  .column {
+    float: left;
+    width: 30%;
+    padding: 10px;
+    height: 100px; 
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  
+  
+  
+  p{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: black;
+  }
+  
+  .section{
+    position: relative;
+    width: 100%;
+    display: block;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+  .full-height{
+    min-height: 100vh;
+  }
+  
+  [type="checkbox"]:checked,
+  [type="checkbox"]:not(:checked){
+    position: absolute;
+    left: -9999px;
+  }
+  .modal-btn:checked + label,
+  .modal-btn:not(:checked) + label{
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 2;
+    height: 50px;
+    transition: all 200ms linear;
+    border-radius: 4px;
+    width: 240px;
+    letter-spacing: 1px;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    -ms-justify-content: center;
+    justify-content: center;
+    -ms-flex-pack: center;
+    text-align: center;
+      -ms-flex-item-align: center;
+      align-self: center;
+    border: none;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    box-shadow: 0 12px 35px 0 rgba(16,39,112,.25);
+  }
+  .modal-btn:not(:checked) + label:hover{
+    background-color: #ffeba7;
+    color: #102770;
+  }
+  .modal-btn:checked + label .uil,
+  .modal-btn:not(:checked) + label .uil{
+    margin-left: 10px;
+    font-size: 18px;
+  }
+  .modal-btn:checked + label:after,
+  .modal-btn:not(:checked) + label:after{
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    z-index: 110;
+    width: 40px;
+    border-radius: 3px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 18px;
+    background-color: #ffeba7;
+    color: #102770;
+    font-family: 'unicons';
+    content: '\eac6'; 
+    box-shadow: 0 12px 25px 0 rgba(16,39,112,.25);
+    transition: all 200ms linear;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+  }
+  .modal-btn:checked + label:hover:after,
+  .modal-btn:not(:checked) + label:hover:after{
+    background-color: #102770;
+    color: #ffeba7;
+  }
+  .modal-btn:checked + label:after{
+    transition: opacity 300ms 300ms ease, transform 300ms 300ms ease, background-color 250ms linear, color 250ms linear;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+  .modal{
+    position: fixed;
+    display: block;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin: 0 auto;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    overflow-x: hidden;
+    background-color: rgba(31,32,41,.75);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 250ms 700ms ease;
+  }
+  .modal-btn:checked ~ .modal{
+    pointer-events: auto;
+    opacity: 1;
+    transition: all 300ms ease-in-out;
+  }
+  .modal-wrap {
+    position: relative;
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    overflow: hidden;
+    padding-bottom: 20px;
+    background-color: #fff;
+      -ms-flex-item-align: center;
+      align-self: center;
+      box-shadow: 0 12px 25px 0 rgba(199,175,189,.25);
+    opacity: 0;
+    transform: scale(0.6);
+    transition: opacity 250ms 250ms ease, transform 300ms 250ms ease;
+  }
+  
+  .modal-wrap p {
+    padding: 20px 30px 0 30px;
+  }
+  .modal-btn:checked ~ .modal .modal-wrap{
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 250ms 500ms ease, transform 350ms 500ms ease;
+  }
+  
+  
+  .logo {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    display: block;
+    z-index: 1000;
+    transition: all 250ms linear;
+  }
+  .logo img {
+    height: 26px;
+    width: auto;
+    display: block;
+      filter: brightness(10%);
+    transition: filter 250ms 700ms linear;
+  }
+  .modal-btn:checked ~ .logo img {
+      filter: brightness(100%);
+    transition: all 250ms linear;
+  }
+  
+  
+  @media screen and (max-width: 500px) {
+    .modal-wrap {
+      width: calc(100% - 40px);
+      padding-bottom: 15px;
+    }
+    .modal-wrap p {
+      padding: 15px 20px 0 20px;
+    }
+  }
+  
+    </style> -->
+
+</head>
+<body class="post-template page-template page">
+
+<div class="site-wrapper">
+
+	<nav class="main-nav overlay clearfix">
+	<a class="blog-logo" href="index.html"><img src="assets/img/logo.png" alt="Fashion Critiques"/></a>
+	<ul id="menu">
+		<li class="nav-home" role="presentation"><a href="index.html">Home</a></li>
+		<li class="nav-author-page" role="presentation"><a href="blog.html">Blog</a></li>
+		<li class="nav-about-us" role="presentation"><a href="about.html">About</a></li>
+		<li class="nav-about-us nav-current" role="presentation"><a href="helping-minds.html">Helping Minds</a></li>
+
+		<span class="socialheader">
+			<a href="https://www.instagram.com/ghufranistic"><span class='symbol'>circleinstagram</span></a>
+			<a href="https://www.facebook.com/ghufran.hussain.5496"><span class='symbol'>circlefacebook</span></a>
+			<a href="https://www.twitter.com/ghufranistic"><span class='symbol'>circletwitterbird</span></a>
+			<a href="mailto:ghufranistic@gmail.com"><span class='symbol'>circleemail</span></a>
+			</span>
+	</ul>
+	</nav>
+
+	<header class="main-header post-head " style="background-image: url(assets/img/blog-1.jpg)">
+	<div class="vertical">
+		<div class="main-header-content inner">
+			<h1 class="post-title">COVID-19<br> Mental Health Toolkit</h1>
+		</div>
+	</div>
+	</header>
+
+	<main id="content" class="content" role="main">
+		<div class="wraps">
+			<img src="assets/img/shadow.png" class="wrapshadow">
+			<article class="post featured">
+			<section class="post-content">
+	
+				<div class="row">
+	
+					<div class="column">
+					
+						<input class="modal-btn" type="checkbox" id="modal-btn" name="modal-btn"/>
+		
+						<label><a href=minds-depressed.html style="color:white;text-decoration: none">I feel depressed</a></label> 	
+				  
+					
+					</div>
+				</div>
+				
+        <div class="row">
+					<div class="column">
+					
+						<input class="modal-btn" type="checkbox" id="modal-btn" name="modal-btn"/>
+		
+						<label><a href=minds-lonely.html style="color:white;text-decoration: none">I feel lonely</a></label> 	
+				  
+					
+					</div>
+				
+				</div>
+
+
+        <div class="row">
+
+        
+					<div class="column">
+					
+						<input class="modal-btn" type="checkbox" id="modal-btn" name="modal-btn"/>
+		
+						<label><a href=minds-stircrazy.html style="color:white;text-decoration: none">I feel stir crazy</a></label> 	
+				  
+					
+					</div>
+
+				</div>
+	
+		
+			</section>
+			<!-- <footer class="post-footer">
+			<figure class="author-image">
+			<a class="img" href="about.html" style="background-image: url(assets/img/gravatar.jpg);"><span class="hidden">Ghufran</span></a>
+			</figure>
+			<section class="author">
+			<h4><a href="author.html">Ghufran</a></h4>
+			<p> -->
+				<!-- Go to my wattpad to see my short stories! -->
+			<!-- </p>
+			<div class="author-meta">
+				<span class="author-link icon-link"><a href="https://www.wattpad.com/user/ghufranistic">Wattpad</a></span>
+			</div>
+			</section> -->
+			<!-- <section class="share">
+			<h4>Share this post</h4>
+			<a class="icon-twitter" href="https://twitter.com/intent/tweet?text=Once%20Upon%20a%20Time&amp;url=#" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+			<span class="hidden">Instagram</span>
+			</a>
+			<a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=#" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+			<span class="hidden">Wattpad</span>
+			</a>
+			<a class="icon-google-plus" href="https://plus.google.com/share?url=#" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+			<span class="hidden">Facebook</span>
+			</a>
+			</section> -->
+			<!-- </footer> -->
+	
+	
+			</article>
+		</div>
+		</main>
+
+	<footer class="site-footer clearfix">
+	<!-- <a href="#top" id="back-to-top" class="back-top"></a> -->
+	<div class="text-center">
+		<a href="index.html">Copyright</a> &copy; 2021<br/>
+	</div>
+	</footer>
+
+</div>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="assets/js/masonry.min.js"></script>
+<script type="text/javascript" src="assets/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="assets/js/index.js"></script>
+</body>
+</html>
+
